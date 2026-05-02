@@ -1233,9 +1233,9 @@ padding:8px 14px;margin-bottom:10px;font-size:11px;color:#64748b'>
     x     = np.arange(len(categories))
     width = 0.35
     bars_b = ax_sim.bar(x-width/2,[v/1000 for v in before_vals],width,label='ก่อนดำเนินกลยุทธ์',
-                        color=['#ef4444','#94a3b8','#ef4444' if monthly_profit<0 else '#22c55e'],alpha=0.8)
+                        color='#ef4444',alpha=0.8)
     bars_a = ax_sim.bar(x+width/2,[v/1000 for v in after_vals],width,label='หลังดำเนินกลยุทธ์',
-                        color=['#22c55e','#3b82f6','#22c55e' if sim_new_profit>=0 else '#f97316'],alpha=0.8)
+                        color='#22c55e',alpha=0.8)
     for bar,val in zip(bars_b,before_vals):
         ax_sim.text(bar.get_x()+bar.get_width()/2,bar.get_height()+0.5,f'{val/1000:.1f}K',ha='center',fontsize=8)
     for bar,val in zip(bars_a,after_vals):
