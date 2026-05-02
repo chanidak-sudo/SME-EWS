@@ -481,7 +481,7 @@ def build_fallback(season_label, risks, monthly_profit, survival_months, biz_typ
         'data_driven_context': data_ctx,
         'risk_analysis':{
             'tourism':f"นักท่องเที่ยว{'มาก' if tourist>avg_tourist else 'น้อย'}กว่าปกติ ส่งผลต่อยอดขายโดยตรง",
-            'cashflow':f"เงินสำรองรอดได้ {survival_months:.1f} เดือน {'ต้องระวัง' if survival_months<6 else 'พอรับได้'}",
+            'cashflow':f"เงินสำรองรอดได้ {'มั่นคง ✅' if survival_months>=99 else str(round(survival_months,1))+' เดือน'} {'ต้องระวัง' if survival_months<6 else 'พอรับได้' if survival_months<99 else ''}",
             'trend':f"แนวโน้มตลาด{tourist_trend} ควรวางแผนล่วงหน้า",
         },
         'strategic_recommendations':recs,'immediate_actions_7_days':actions,
