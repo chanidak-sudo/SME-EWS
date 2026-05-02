@@ -1295,7 +1295,7 @@ padding:8px 14px;margin-bottom:10px;font-size:11px;color:#64748b'>
     ax2.set_title(f'รายได้ท่องเที่ยว {province} ปี {year+543} (พันล้านบาท)'); ax2.set_ylabel('พันล้านบาท'); ax2.grid(True,alpha=0.3,axis='y')
 
     from matplotlib.patches import Patch
-    legend_els=[Patch(color=bar_colors_map[s],label=f"{season_config[s]['emoji']} {season_config[s]['label']}") for s in bar_colors_map]
+    legend_els=[Patch(color=bar_colors_map[s],label=season_config[s]['label']) for s in bar_colors_map]
     ax1.legend(handles=legend_els,loc='upper right',fontsize=8,ncol=3)
     plt.suptitle('กรอบดำ = เดือนที่วิเคราะห์',fontsize=10); plt.tight_layout(); st.pyplot(fig)
 
