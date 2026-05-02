@@ -1,7 +1,7 @@
 matplotlib
-streamlit
-pandas
 numpy
+pandas
+streamlit
 joblib
 groq
 gdown
