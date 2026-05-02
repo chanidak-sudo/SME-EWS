@@ -743,9 +743,15 @@ if predict_btn:
         (pb2,"💸 ด้านการเงิน",risks['cf_risk']),
         (pb3,"📈 ด้านแนวโน้มตลาด",risks['trend_risk']),
     ]:
+        bar_color = '#ef4444' if score>=70 else '#f59e0b' if score>=40 else '#22c55e'
         with col:
-            st.markdown(f"**{label}**: {score}/100")
-            st.progress(score/100)
+            st.markdown(
+                f"<div style='margin-bottom:8px'>"
+                f"<span style='font-weight:bold'>{label}</span>: {score}/100"
+                f"<div style='background:#e2e8f0;border-radius:999px;height:10px;margin-top:4px'>"
+                f"<div style='background:{bar_color};width:{score}%;height:10px;border-radius:999px;transition:width 0.3s'></div>"
+                f"</div></div>",
+                unsafe_allow_html=True)
 
     st.markdown("""
 <div style='background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 16px;margin-top:8px;font-size:11px;color:#64748b'>
