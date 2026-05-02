@@ -694,7 +694,7 @@ padding:10px 14px;margin-top:10px;font-size:11px;color:#64748b'>
   และสร้างรายได้จาก B2B License โดยไม่กระทบการให้บริการฟรีแก่ SME รายย่อย
 </div>
 """, unsafe_allow_html=True)
-
+st.markdown("<br>", unsafe_allow_html=True)
 with st.expander("❓ คำถามที่พบบ่อย", expanded=False):
     col_a,col_b,col_c = st.columns(3)
     with col_a:
