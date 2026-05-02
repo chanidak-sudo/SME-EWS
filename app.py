@@ -930,9 +930,9 @@ padding:10px 16px;margin-top:8px;font-size:11px;color:#475569'>
     st.markdown("""
 <div style='background:#fafafa;border:1px solid #e2e8f0;border-radius:8px;
 padding:8px 14px;margin-bottom:10px;font-size:11px;color:#64748b'>
-  🧠 <b>AI Action Logic:</b> AI-generated strategies are derived from pattern matching between
-  historical crisis scenarios and business context using LLM-assisted decision rules (Groq LLaMA 3.3-70B).
-  Recommendations are grounded in industry-specific KPIs — not generic advice.
+  🧠 <b>หลักการทำงานของ AI:</b> กลยุทธ์ที่แนะนำมาจากการจับคู่รูปแบบระหว่าง
+  สถานการณ์วิกฤตในอดีตกับบริบทธุรกิจปัจจุบัน โดยใช้ LLM-assisted Decision Rules (Groq LLaMA 3.3-70B)
+  คำแนะนำอ้างอิงจาก KPI เฉพาะอุตสาหกรรม — ไม่ใช่คำแนะนำทั่วไป
 </div>
 """, unsafe_allow_html=True)
     st.caption(f"AI วิเคราะห์จาก Risk 3 มิติ + Cashflow + Break-even + KPI เฉพาะ{biz_type}")
