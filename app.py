@@ -787,11 +787,11 @@ if predict_btn:
     st.markdown("""
 <div style='background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;
 padding:10px 16px;margin-top:8px;font-size:11px;color:#475569'>
-  📐 <b>Risk Score Formula:</b>
-  <code>Overall Risk = 0.35 × Tourist Risk + 0.45 × Financial Risk + 0.20 × Trend Risk</code><br>
-  Tourist Risk = f(demand gap, trend direction) &nbsp;|&nbsp;
-  Financial Risk = f(survival months, profit margin, cost ratio) &nbsp;|&nbsp;
-  Trend Risk = f(seasonality classification, momentum)
+  📐 <b>สูตรคำนวณความเสี่ยง:</b>
+  <code>ความเสี่ยงรวม = 0.35 × ความเสี่ยงนักท่องเที่ยว + 0.45 × ความเสี่ยงการเงิน + 0.20 × ความเสี่ยงแนวโน้ม</code><br>
+  ความเสี่ยงนักท่องเที่ยว = f(ช่องว่าง Demand, ทิศทางแนวโน้ม) &nbsp;|&nbsp;
+  ความเสี่ยงการเงิน = f(เดือนที่รอดได้, อัตรากำไร, สัดส่วนต้นทุน) &nbsp;|&nbsp;
+  ความเสี่ยงแนวโน้ม = f(ประเภทฤดูกาล, Momentum)
 </div>
 """, unsafe_allow_html=True)
 
