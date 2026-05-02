@@ -514,10 +514,10 @@ st.markdown("""
 st.markdown("""
 <div style='background:rgba(251,191,36,0.08);border:1px solid #92400e;
 border-radius:8px;padding:10px 16px;margin:6px 0;font-size:11px;color:#92400e'>
-  📌 <b>Data Transparency:</b> Tourism data sourced from Ministry of Tourism Thailand (7 years, 2562–2569).
-  Business-level financial data is simulated based on realistic SME benchmarks derived from industry reports
-  and validated through scenario-based sensitivity analysis.
-  Model performance tested on held-out data including COVID-19 crisis period.
+  📌 <b>ความโปร่งใสด้านข้อมูล:</b> ข้อมูลท่องเที่ยวมาจากกระทรวงการท่องเที่ยวและกีฬา (7 ปี, 2562–2569)
+  ข้อมูลการเงินระดับธุรกิจเป็นการจำลองจากเกณฑ์มาตรฐาน SME จริง อ้างอิงจากรายงานอุตสาหกรรม
+  และตรวจสอบความถูกต้องผ่าน Scenario-based Sensitivity Analysis
+  ประสิทธิภาพโมเดลทดสอบด้วยข้อมูล Hold-out รวมช่วงวิกฤต COVID-19
 </div>
 """, unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
