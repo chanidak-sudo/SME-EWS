@@ -2,7 +2,6 @@ streamlit
 pandas
 numpy
 matplotlib
-matplotlib-base
 joblib
 groq
 gdown
