@@ -2,8 +2,8 @@
 # SME EARLY WARNING SYSTEM (SME-EWS)
 # ระบบเตือนภัยล่วงหน้าสำหรับธุรกิจ SME ภาคการท่องเที่ยวไทย
 # ───────────────────────────────────────────────────────────────────────────────
-# สงวนลิขสิทธิ์ © 2026  ทีมวิจัยและพัฒนาระบบ SME-EWS
-# Copyright © 2026  SME-EWS Research & Development Team
+# สงวนลิขสิทธิ์ © 2025  ทีมวิจัยและพัฒนาระบบ SME-EWS
+# Copyright © 2025  SME-EWS Research & Development Team
 # พ.ร.บ. ลิขสิทธิ์ พ.ศ. 2537 | Patent Application Pending
 # ═══════════════════════════════════════════════════════════════════════════════
 import os
@@ -33,7 +33,7 @@ st.set_page_config(
     menu_items={
         'About': (
             "**SME Early Warning System (SME-EWS)**\n\n"
-            "สงวนลิขสิทธิ์ © 2026 ทีมวิจัยและพัฒนาระบบ SME-EWS\n"
+            "สงวนลิขสิทธิ์ © 2025 ทีมวิจัยและพัฒนาระบบ SME-EWS\n"
             "อยู่ระหว่างยื่นขอรับสิทธิบัตรโปรแกรมคอมพิวเตอร์"
         )
     }
@@ -200,42 +200,50 @@ season_config = {
     'Survival':           {'emoji':'⚠️','color':'#fff7ed','border':'#f97316','label':'ควรระวัง','risk_base':70},
     'Critical Risk':      {'emoji':'🚨','color':'#fef2f2','border':'#ef4444','label':'เสี่ยงวิกฤต','risk_base':88},
 }
+
+# ── [FIX 3] เพิ่ม dynamic_pricing ให้ทุกประเภทธุรกิจ ──
 biz_kpi = {
     "ที่พัก/โรงแรม": {
         "kpi": ["Occupancy Rate","ราคาห้องเฉลี่ย","รายได้/ห้อง/วัน","OTA Ranking"],
         "low_action":  "ลด Rate ใน OTA 15% และเพิ่ม Free Breakfast ดึงลูกค้า",
         "high_action": "ปิด OTA บางส่วน เน้น Direct Booking Margin สูงกว่า",
         "cost_focus":  "ค่าไฟ ค่าแม่บ้าน ค่า OTA Commission 15-20%",
+        "dynamic_pricing": "ปรับราคาห้องรายวันตาม Occupancy Rate: ต่ำกว่า 50% → ลด 15%, สูงกว่า 80% → ขึ้น 20% โดย AI วิเคราะห์ช่วง Peak รายสัปดาห์",
     },
     "ร้านอาหาร/คาเฟ่": {
         "kpi": ["ลูกค้าต่อวัน","ต้นทุนต่อจาน","รอบโต๊ะ/วัน","ของเสียหาย %"],
         "low_action":  "ลดเมนูเหลือ Top 10 ที่ขายดีสุด ลด Food Waste 20-30%",
         "high_action": "เพิ่มรอบ Turnover จาก 2→3 รอบ/วัน เพิ่มรายได้ 50%",
         "cost_focus":  "วัตถุดิบ 30-35% ค่าแรง ค่าเช่า",
+        "dynamic_pricing": "ใช้ AI วิเคราะห์ช่วงเวลาที่ลูกค้าหนาแน่นสูงสุด (Peak Hours) เพื่อปรับราคาแบบ Dynamic Pricing รายวัน เช่น Happy Hour ช่วง Off-peak ลด 15% ดึงลูกค้า",
     },
     "ทัวร์/นำเที่ยว": {
         "kpi": ["อัตราจอง","อัตรายกเลิก","ต้นทุน/คน","คะแนนรีวิว"],
         "low_action":  "จับมือ Klook/GetYourGuide เพิ่มช่องทางขาย",
         "high_action": "เพิ่ม Premium Tour ราคาสูงขึ้น 30% Margin ดีกว่า",
         "cost_focus":  "ค่าเชื้อเพลิง ค่าไกด์ ค่าประกัน",
+        "dynamic_pricing": "ใช้ AI วิเคราะห์วันที่จองสูงสุดในรอบสัปดาห์ ปรับราคาทัวร์แบบ Dynamic เพิ่มราคา 10-20% ในวันที่จองหนาแน่น ลด Early Bird 15% ในวันที่ยังว่าง",
     },
     "รถเช่า": {
         "kpi": ["อัตราการใช้งาน %","รายได้/คัน/วัน","ค่าซ่อม","วันว่าง"],
         "low_action":  "ลดราคา 20% แพ็คเกจรายสัปดาห์ ลด Idle Days",
         "high_action": "เพิ่มรถ Premium SUV Margin สูงกว่า Economy 40%",
         "cost_focus":  "ค่าซ่อมบำรุง ค่าประกัน ค่าเสื่อมราคา",
+        "dynamic_pricing": "ใช้ AI วิเคราะห์ช่วงเวลาที่รถถูกใช้งานสูงสุดรายวัน เพื่อปรับราคาแบบ Dynamic Pricing เช่น วันหยุดยาว/เทศกาล ขึ้นราคา 25-30%, วันธรรมดาที่รถว่าง ลดราคา 15% กระตุ้นจอง",
     },
     "ของที่ระลึก/ของฝาก": {
         "kpi": ["อัตราซื้อ","ยอดเฉลี่ย/ครั้ง","หมุนเวียนสต็อก","ลูกค้าซ้ำ %"],
         "low_action":  "จัด Bundle Set 3 ชิ้น ลด 15% เพิ่ม Basket Size",
         "high_action": "เพิ่มสินค้า Exclusive Margin สูง ขายเฉพาะที่ร้าน",
         "cost_focus":  "สต็อกสินค้า หลีกเลี่ยง Overstock ค่าเช่าพื้นที่",
+        "dynamic_pricing": "ใช้ AI วิเคราะห์ช่วงเวลาที่นักท่องเที่ยวเดินผ่านสูงสุด ปรับโปรโมชัน Flash Sale แบบ Dynamic รายชั่วโมง เช่น ช่วงบ่าย 2-4 โมงที่ทราฟิกสูง เพิ่มราคา Exclusive Items 10%",
     },
     "สปา/นวด": {
         "kpi": ["อัตราการใช้ห้อง %","รายได้/ชั่วโมง","ลูกค้าซ้ำ %","อัตราไม่มา"],
         "low_action":  "โปรโมชัน Couple Package ลด 20% ดึงลูกค้าใหม่",
         "high_action": "เพิ่ม Add-on Aromatherapy เพิ่มรายได้ต่อ Visit",
         "cost_focus":  "ค่าแรงพนักงาน 40-50% ค่าผลิตภัณฑ์ ค่าเช่า",
+        "dynamic_pricing": "ใช้ AI วิเคราะห์ช่วง Peak Hour ของห้อง (ปกติ 16:00-20:00) ปรับราคาแบบ Dynamic เพิ่ม 15% ในช่วง Peak, ทำโปรโมชัน Off-Peak (10:00-14:00) ลด 20% เพิ่ม Utilization",
     },
 }
 
@@ -602,7 +610,7 @@ st.divider()
 st.sidebar.markdown("""
 <div style='background:#0f172a;padding:12px;border-radius:8px;margin-bottom:12px;border:1px solid #1e3a5f'>
   <div style='color:#f87171;font-weight:bold;font-size:13px'>🚨 SME Early Warning System</div>
-  <div style='color:#64748b;font-size:10px;margin-top:2px'>© 2026 SME-EWS · Patent Pending</div>
+  <div style='color:#64748b;font-size:10px;margin-top:2px'>© 2025 SME-EWS · Patent Pending</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -635,7 +643,7 @@ predict_btn = st.sidebar.button("🚨 วิเคราะห์ความเ
 st.sidebar.divider()
 st.sidebar.markdown("""
 <div style='font-size:10px;color:#94a3b8;text-align:center;line-height:1.6'>
-  สงวนลิขสิทธิ์ © 2026<br>SME-EWS Research & Development Team<br>
+  สงวนลิขสิทธิ์ © 2025<br>SME-EWS Research & Development Team<br>
   <strong>Patent Application Pending</strong><br>พ.ร.บ. ลิขสิทธิ์ พ.ศ. 2537
 </div>
 """, unsafe_allow_html=True)
@@ -679,6 +687,7 @@ if predict_btn:
     daily_revenue_now   = customers_per_day*avg_spend_per_customer
     breakeven_customers = (daily_cost/avg_spend_per_customer if avg_spend_per_customer>0 else 0)
 
+    # ── Early Warning Banner ──────────────────────
     st.markdown(f"""
 <div style='background:{"linear-gradient(135deg,#450a0a,#7f1d1d)" if risks["overall"]>=70
              else "linear-gradient(135deg,#431407,#7c2d12)" if risks["overall"]>=40
@@ -704,6 +713,7 @@ if predict_btn:
 
     st.subheader(f"📍 {province} — {months_full[month-1]} {year+543} · {cfg['emoji']} {cfg['label']}")
 
+    # ── Risk Score 3 มิติ ─────────────────────────
     st.subheader("🎯 ความเสี่ยง 3 มิติ (Core of EWS)")
     st.markdown("""
 <div style='background:#f0fdf4;border:1px solid #22c55e;border-radius:8px;padding:10px 16px;margin-bottom:12px'>
@@ -745,8 +755,23 @@ if predict_btn:
 </div>
 """, unsafe_allow_html=True)
 
+    # ── [FIX 1] Demand vs Revenue Insight ────────
+    tourist_diff_pct = (tourist - avg_tourist) / max(avg_tourist, 1) * 100
+    if tourist_diff_pct > 5 and monthly_profit < 0:
+        st.markdown(
+            "<div style='background:#fefce8;border:1px solid #eab308;"
+            "border-radius:8px;padding:12px;margin:10px 0'>"
+            "<b>💡 Insight สำคัญ: Demand ดี ≠ ธุรกิจรอด</b><br>"
+            f"แม้นักท่องเที่ยวในจังหวัดเพิ่มขึ้น <b>{tourist_diff_pct:.0f}%</b> จากค่าเฉลี่ย "
+            "แต่ธุรกิจยังไม่สามารถแปลง Demand เป็นรายได้ได้เต็มที่ "
+            "เนื่องจาก <b>Utilization ต่ำ</b> และ <b>ต้นทุนคงที่สูง</b> "
+            "การเพิ่มนักท่องเที่ยวในระดับจังหวัดไม่ได้หมายความว่ารายได้ธุรกิจจะเพิ่มตามโดยอัตโนมัติ"
+            "</div>",
+            unsafe_allow_html=True)
+
     st.divider()
 
+    # ── Cashflow Detail ───────────────────────────
     st.subheader("💸 รายละเอียดการเงิน")
     cf1,cf2,cf3,cf4 = st.columns(4)
     sv       = (f"{survival_months:.1f} เดือน" if survival_months<99 else "มั่นคง ✅")
@@ -766,8 +791,20 @@ if predict_btn:
 
     st.divider()
 
+    # ── Break-even Calculator ─────────────────────
     st.subheader("🧮 จุดคุ้มทุนของธุรกิจคุณ")
     st.caption("คำนวณว่าต้องมีลูกค้ากี่คน/วัน ถึงจะไม่ขาดทุน")
+
+    # ── [FIX 2] Break-even Disclaimer ────────────
+    st.markdown(
+        "<div style='background:#f0f9ff;border:1px solid #0ea5e9;"
+        "border-radius:8px;padding:10px;margin-bottom:10px;font-size:12px'>"
+        "📌 <b>หมายเหตุ:</b> จุดคุ้มทุนนี้คำนวณจาก <b>รายได้ต่อวัน vs ต้นทุนรวม/วัน</b> "
+        "ไม่รวมต้นทุนคงที่บางส่วน เช่น ค่าเสื่อมราคาสินทรัพย์และค่าประกันภัย "
+        "ซึ่งอาจทำให้ผลลัพธ์จริงแตกต่างจากการคำนวณนี้ได้"
+        "</div>",
+        unsafe_allow_html=True)
+
     gap_customers = breakeven_customers-customers_per_day
     be_color      = '#22c55e' if gap_customers<=0 else '#ef4444'
     be1,be2,be3 = st.columns(3)
@@ -808,6 +845,7 @@ if predict_btn:
 
     st.divider()
 
+    # ── KPI + G1/G2 Summary ───────────────────────
     kpi_info = biz_kpi.get(biz_type,biz_kpi["ร้านอาหาร/คาเฟ่"])
     st.subheader(f"📊 KPI หลักสำหรับ {biz_type}")
     kpi_cols = st.columns(len(kpi_info['kpi']))
@@ -819,8 +857,8 @@ if predict_btn:
     m1, m2, m3 = st.columns(3)
 
     row_avg_r = md['g2_avg'][
-    (md['g2_avg']['province_thai']==province)&
-    (md['g2_avg']['month']==month)]
+        (md['g2_avg']['province_thai']==province)&
+        (md['g2_avg']['month']==month)]
     avg_revenue = row_avg_r['avg_revenue'].values[0] if len(row_avg_r)>0 else revenue
     diff_r = (revenue-avg_revenue)/max(avg_revenue,1)*100
 
@@ -829,18 +867,19 @@ if predict_btn:
     diff = (tourist-avg_tourist)/max(avg_tourist,1)*100
 
     small_card(m1,"🧭 นักท่องเที่ยวคาดการณ์",
-           f"{tourist:,.0f} คน",
-           f"{trend_icon_t} {tourist_trend} · {'มากกว่า' if diff>0 else 'น้อยกว่า'}ปกติ {abs(diff):.0f}%")
+               f"{tourist:,.0f} คน",
+               f"{trend_icon_t} {tourist_trend} · {'มากกว่า' if diff>0 else 'น้อยกว่า'}ปกติ {abs(diff):.0f}%")
     small_card(m2,"💰 รายได้ท่องเที่ยวจังหวัด",
-           f"{revenue/1e9:.2f} พันล้านบาท",
-           f"{trend_icon_r} {revenue_trend} · {'มากกว่า' if diff_r>0 else 'น้อยกว่า'}ปกติ {abs(diff_r):.0f}%")
+               f"{revenue/1e9:.2f} พันล้านบาท",
+               f"{trend_icon_r} {revenue_trend} · {'มากกว่า' if diff_r>0 else 'น้อยกว่า'}ปกติ {abs(diff_r):.0f}%")
     small_card(m3,f"🤖 สถานการณ์",
-           f"{cfg['emoji']} {cfg['label']}",
-           f"ความเชื่อมั่น {conf:.0f}%")
+               f"{cfg['emoji']} {cfg['label']}",
+               f"ความเชื่อมั่น {conf:.0f}%")
     st.markdown("<br>", unsafe_allow_html=True)
     st.caption("📌 แนวโน้ม = เทียบเดือนก่อนหน้า · มากกว่า/น้อยกว่าปกติ = เทียบค่าเฉลี่ยย้อนหลัง")
     st.divider()
 
+    # ── AI Strategy ───────────────────────────────
     st.subheader("🤖 แผนกลยุทธ์เชิงลึก — บอกว่าต้องทำอะไร")
     st.caption(f"AI วิเคราะห์จาก Risk 3 มิติ + Cashflow + Break-even + KPI เฉพาะ{biz_type}")
 
@@ -883,8 +922,111 @@ if predict_btn:
         st.markdown("**🔀 If-Then Guide**")
         for ift in result.get('if_then_guide',[]): st.markdown(f"→ {ift}")
 
+    # ── [FIX 3] AI Dynamic Pricing ────────────────
+    st.divider()
+    st.subheader("🤖 AI Dynamic Pricing Strategy")
+    st.caption("ระบบ AI วิเคราะห์ช่วงเวลาที่เหมาะสมสำหรับการปรับราคาแบบอัจฉริยะ")
+
+    dp_info = kpi_info.get("dynamic_pricing", "")
+    st.markdown(
+        f"<div style='background:#f0fdf4;border:1px solid #22c55e;"
+        f"border-radius:8px;padding:14px;margin-bottom:10px'>"
+        f"<b>💡 กลยุทธ์ Dynamic Pricing สำหรับ {biz_type}</b><br><br>"
+        f"{dp_info}"
+        f"</div>",
+        unsafe_allow_html=True)
+
+    dp1,dp2,dp3 = st.columns(3)
+    peak_revenue    = daily_revenue_now * 1.20
+    offpeak_revenue = daily_revenue_now * 0.85
+    avg_dp_revenue  = (peak_revenue*0.4 + daily_revenue_now*0.4 + offpeak_revenue*0.2)
+    dp_monthly_gain = (avg_dp_revenue - daily_revenue_now) * 30
+
+    small_card(dp1,"📈 ช่วง Peak (+20%)",f"{peak_revenue:,.0f} บาท/วัน","ปรับราคาขึ้นช่วงความต้องการสูง",'#22c55e')
+    small_card(dp2,"📊 Off-Peak (-15%)",f"{offpeak_revenue:,.0f} บาท/วัน","ดึงลูกค้าช่วงความต้องการต่ำ",'#3b82f6')
+    small_card(dp3,"💰 รายได้เพิ่มขึ้น/เดือน",f"+{dp_monthly_gain:,.0f} บาท","ประมาณการจาก Dynamic Pricing",'#f59e0b')
+
+    # ── [FIX 4] Impact Simulation ─────────────────
+    st.divider()
+    st.subheader("📊 Impact Simulation — ผลลัพธ์ที่คาดการณ์")
+    st.caption("จำลองผลลัพธ์หากดำเนินกลยุทธ์ที่แนะนำทั้งหมด")
+
+    sim_cost_cut_pct       = 0.20
+    sim_utilization_pct    = 0.15
+    sim_dp_pct             = dp_monthly_gain / max(monthly_revenue, 1)
+
+    sim_new_cost     = monthly_cost * (1 - sim_cost_cut_pct)
+    sim_new_revenue  = monthly_revenue * (1 + sim_dp_pct)
+    sim_new_profit   = sim_new_revenue - sim_new_cost
+    sim_new_survival = (cash_on_hand / max(abs(sim_new_profit), 1) if sim_new_profit < 0 else 99)
+    sim_profit_change = sim_new_profit - monthly_profit
+    sim_new_customers = customers_per_day * (1 + sim_utilization_pct)
+
+    sim_color = '#22c55e' if sim_new_profit >= 0 else '#f97316'
+    st.markdown(
+        f"<div style='background:#f0fdf4;border:2px solid #22c55e;"
+        f"border-radius:10px;padding:16px;margin-bottom:12px'>"
+        f"<b>🎯 ถ้าดำเนินการตามแผนทั้งหมด คาดการณ์ผลลัพธ์ภายใน 1-3 เดือน:</b><br><br>"
+        f"✂️ ลดต้นทุน 20% → ประหยัดได้ <b>{monthly_cost*sim_cost_cut_pct:,.0f} บาท/เดือน</b><br>"
+        f"👥 เพิ่ม Utilization 15% → ลูกค้าเพิ่มจาก <b>{customers_per_day} → {sim_new_customers:.0f} คน/วัน</b><br>"
+        f"💰 Dynamic Pricing → รายได้เพิ่ม <b>+{dp_monthly_gain:,.0f} บาท/เดือน</b><br>"
+        f"📊 กำไร/ขาดทุนใหม่: <b style='color:{sim_color}'>{sim_new_profit:+,.0f} บาท/เดือน</b> "
+        f"(เปลี่ยนแปลง {sim_profit_change:+,.0f} บาท)<br>"
+        f"🛡️ เงินสำรองรอดได้: <b>{'มั่นคง' if sim_new_survival>=99 else str(round(sim_new_survival,1))+' เดือน'}</b> "
+        f"(จากเดิม {'มั่นคง' if survival_months>=99 else str(round(survival_months,1))+' เดือน'})"
+        f"</div>",
+        unsafe_allow_html=True)
+
+    sim1,sim2,sim3,sim4 = st.columns(4)
+    before_profit_color = '#22c55e' if monthly_profit >= 0 else '#ef4444'
+    after_profit_color  = '#22c55e' if sim_new_profit  >= 0 else '#f97316'
+
+    small_card(sim1,"📉 ก่อน: ต้นทุน/เดือน",f"{monthly_cost:,.0f} บาท","ก่อนลดต้นทุน",'#ef4444')
+    small_card(sim2,"📈 หลัง: ต้นทุน/เดือน",f"{sim_new_cost:,.0f} บาท",f"ลดลง {monthly_cost*sim_cost_cut_pct:,.0f} บาท (-20%)",'#22c55e')
+    small_card(sim3,"📉 ก่อน: กำไร/ขาดทุน",f"{monthly_profit:+,.0f} บาท","สถานะปัจจุบัน",before_profit_color)
+    small_card(sim4,"📈 หลัง: กำไร/ขาดทุน",f"{sim_new_profit:+,.0f} บาท","หลังดำเนินกลยุทธ์",after_profit_color)
+
+    fig_sim,ax_sim = plt.subplots(figsize=(10,4))
+    categories  = ['ต้นทุน/เดือน','รายได้/เดือน','กำไร/ขาดทุน']
+    before_vals = [monthly_cost, monthly_revenue, monthly_profit]
+    after_vals  = [sim_new_cost, sim_new_revenue, sim_new_profit]
+    x     = np.arange(len(categories))
+    width = 0.35
+    bars_b = ax_sim.bar(x-width/2,[v/1000 for v in before_vals],width,label='ก่อนดำเนินกลยุทธ์',
+                        color=['#ef4444','#94a3b8','#ef4444' if monthly_profit<0 else '#22c55e'],alpha=0.8)
+    bars_a = ax_sim.bar(x+width/2,[v/1000 for v in after_vals],width,label='หลังดำเนินกลยุทธ์',
+                        color=['#22c55e','#3b82f6','#22c55e' if sim_new_profit>=0 else '#f97316'],alpha=0.8)
+    for bar,val in zip(bars_b,before_vals):
+        ax_sim.text(bar.get_x()+bar.get_width()/2,bar.get_height()+0.5,f'{val/1000:.1f}K',ha='center',fontsize=8)
+    for bar,val in zip(bars_a,after_vals):
+        ax_sim.text(bar.get_x()+bar.get_width()/2,bar.get_height()+0.5,f'{val/1000:.1f}K',ha='center',fontsize=8)
+    ax_sim.set_xticks(x); ax_sim.set_xticklabels(categories)
+    ax_sim.set_ylabel('พันบาท')
+    ax_sim.set_title('Impact Simulation: Before vs After (พันบาท/เดือน)')
+    ax_sim.legend(); ax_sim.axhline(0,color='black',linewidth=0.8,linestyle='--')
+    ax_sim.grid(True,alpha=0.3,axis='y'); plt.tight_layout(); st.pyplot(fig_sim)
+
+    if survival_months < 99 or sim_new_survival < 99:
+        sv_before = min(survival_months, 24)
+        sv_after  = min(sim_new_survival, 24) if sim_new_survival < 99 else 24
+        fig_sv,ax_sv = plt.subplots(figsize=(10,2.5))
+        ax_sv.barh(['ก่อนกลยุทธ์','หลังกลยุทธ์'],[sv_before,sv_after],
+                   color=['#ef4444' if sv_before<6 else '#f97316' if sv_before<12 else '#22c55e',
+                          '#22c55e' if sv_after>=12 else '#f97316' if sv_after>=6 else '#ef4444'],height=0.4)
+        ax_sv.axvline(3,color='#ef4444',linestyle='--',alpha=0.7,label='วิกฤต (3 เดือน)')
+        ax_sv.axvline(6,color='#f97316',linestyle='--',alpha=0.7,label='ระวัง (6 เดือน)')
+        ax_sv.axvline(12,color='#22c55e',linestyle='--',alpha=0.7,label='ปลอดภัย (12 เดือน)')
+        for i,(val,lbl) in enumerate([(sv_before,survival_months),(sv_after,sim_new_survival)]):
+            display = 'มั่นคง' if lbl>=99 else f'{lbl:.1f} เดือน'
+            ax_sv.text(val+0.3,i,display,va='center',fontsize=9)
+        ax_sv.set_xlabel('เดือนที่เงินสำรองจะหมด')
+        ax_sv.set_title('เงินสำรองรอดได้: ก่อน vs หลังกลยุทธ์')
+        ax_sv.legend(fontsize=8); ax_sv.set_xlim(0,26)
+        ax_sv.grid(True,alpha=0.3,axis='x'); plt.tight_layout(); st.pyplot(fig_sv)
+
     st.divider()
 
+    # ── กราฟ 12 เดือน ────────────────────────────
     st.subheader(f"📈 แนวโน้ม 12 เดือน ปี {year+543}")
     monthly_t,monthly_r,monthly_s=[],[],[]
     for m in range(1,13):
@@ -927,6 +1069,7 @@ if predict_btn:
 
     st.divider()
 
+    # ── Model Performance ─────────────────────────
     st.subheader("📊 ประสิทธิภาพระบบ AI")
     metrics=md['metrics']
     p1,p2,p3,p4,p5=st.columns(5)
@@ -944,8 +1087,8 @@ st.markdown("""
 <div style='background:#0f172a;padding:20px 24px;border-radius:12px;border:1px solid #1e293b;text-align:center'>
   <div style='color:#475569;font-size:11px;line-height:2'>
     <strong style='color:#94a3b8'>SME Early Warning System (SME-EWS)</strong><br>
-    สงวนลิขสิทธิ์ © 2026 ทีมวิจัยและพัฒนาระบบ SME-EWS &nbsp;|&nbsp;
-    Copyright © 2026 SME-EWS Research & Development Team<br>
+    สงวนลิขสิทธิ์ © 2025 ทีมวิจัยและพัฒนาระบบ SME-EWS &nbsp;|&nbsp;
+    Copyright © 2025 SME-EWS Research & Development Team<br>
     <strong style='color:#64748b'>Patent Application Pending — Computer Program Patent (Thailand)</strong><br>
     คุ้มครองภายใต้ พ.ร.บ. ลิขสิทธิ์ พ.ศ. 2537 และอนุสัญญาระหว่างประเทศ<br>
     ห้ามทำซ้ำ ดัดแปลง จำหน่าย หรือเผยแพร่โดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร
