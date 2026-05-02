@@ -951,6 +951,14 @@ if predict_btn:
     small_card(dp1,"📈 ช่วง Peak (+20%)",f"{peak_revenue:,.0f} บาท/วัน","ปรับราคาขึ้นช่วงความต้องการสูง",'#22c55e')
     small_card(dp2,"📊 Off-Peak (-15%)",f"{offpeak_revenue:,.0f} บาท/วัน","ดึงลูกค้าช่วงความต้องการต่ำ",'#3b82f6')
     small_card(dp3,"💰 รายได้เพิ่มขึ้น/เดือน",f"+{dp_monthly_gain:,.0f} บาท","ประมาณการจาก Dynamic Pricing",'#f59e0b')
+    st.markdown(
+    "<div style='background:#eff6ff;border:1px solid #3b82f6;"
+    "border-radius:8px;padding:10px 14px;margin-top:10px;margin-bottom:10px'>"
+    "📌 <b>Research Insight:</b> ในธุรกิจร้านอาหาร การเพิ่มรอบ Turnover และการตั้งราคาในช่วงเวลาที่เหมาะสม "
+    "ให้ผลต่อกำไร <b>\"มากกว่า\"</b> การเพิ่มจำนวนลูกค้าเพียงอย่างเดียว "
+    "เนื่องจาก<b>ต้นทุนคงที่ต่อวันไม่เพิ่มตามจำนวนลูกค้า</b>"
+    "</div>",
+    unsafe_allow_html=True)
 
     # ── [FIX 4] Impact Simulation ─────────────────
     st.divider()
@@ -1088,6 +1096,23 @@ if predict_btn:
 # ════════════════════════════════════════════════
 # FOOTER
 # ════════════════════════════════════════════════
+st.markdown("""
+<div style='background:linear-gradient(135deg,#0f2744,#1e3a5f);
+            padding:18px 24px;border-radius:12px;border:1px solid #3b82f6;margin:8px 0'>
+  <div style='color:#93c5fd;font-weight:bold;font-size:13px;margin-bottom:8px'>
+    🌏 Scalability & Extensibility
+  </div>
+  <div style='color:#cbd5e1;font-size:12px;line-height:1.8'>
+    📌 <b style='color:#fbbf24'>Scalability:</b> ระบบนี้สามารถปรับใช้ได้กับ SME ทุกจังหวัดในประเทศไทย
+    โดย AI จะเรียนรู้ <b style='color:#fbbf24'>Demand, Seasonality</b> และ
+    <b style='color:#fbbf24'>พฤติกรรมลูกค้าเฉพาะพื้นที่โดยอัตโนมัติ</b> โดยไม่ต้องปรับโมเดลใหม่<br>
+    📌 สถาปัตยกรรม G1→G2→G3 รองรับการขยายสู่ธุรกิจ Non-tourism และตลาดต่างประเทศ
+    โดยเพียงเปลี่ยน Data Layer และ Re-train โมเดล<br>
+    📌 AI Action Layer สามารถ Plug-in กับระบบ POS / ERP ของธุรกิจได้
+    เพื่อรับข้อมูล Real-time และปรับคำแนะนำอัตโนมัติ
+  </div>
+</div>
+""", unsafe_allow_html=True)
 st.divider()
 st.markdown("""
 <div style='background:#0f172a;padding:20px 24px;border-radius:12px;border:1px solid #1e293b;text-align:center'>
