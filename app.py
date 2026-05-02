@@ -1335,7 +1335,7 @@ st.markdown("""
 <div style='background:linear-gradient(135deg,#0f2744,#1e3a5f);
             padding:18px 24px;border-radius:12px;border:1px solid #3b82f6;margin:8px 0'>
   <div style='color:#93c5fd;font-weight:bold;font-size:13px;margin-bottom:8px'>
-    🌏 Scalability & Extensibility
+    🌏 ความสามารถในการขยายระบบ (Scalability)
   </div>
   <div style='color:#cbd5e1;font-size:12px;line-height:1.8'>
     📌 <b style='color:#fbbf24'>Scalability:</b> ระบบนี้สามารถปรับใช้ได้กับ SME ทุกจังหวัดในประเทศไทย
