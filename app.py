@@ -498,7 +498,7 @@ st.markdown("""
   <div style='display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap'>
     <span style='background:#ef4444;color:#fff;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:bold;letter-spacing:1px'>🚨 EARLY WARNING</span>
     <span style='background:#1d4ed8;color:#fff;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:bold'>AI Decision Intelligence</span>
-    <span style='background:#059669;color:#fff;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:bold'>✅ ฟรี · ทั่วประเทศ</span>
+    <span style='background:#059669;color:#fff;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:bold'>✅ ฟรี 100% · ไม่มีค่าสมัคร</span>
     <span style='background:#7c3aed;color:#fff;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:bold'>© Patent Pending</span>
   </div>
   <h1 style='color:#fff;font-size:2.0rem;font-weight:900;margin:0 0 6px;line-height:1.2'>
@@ -624,6 +624,13 @@ with st.expander("❓ คำถามที่พบบ่อย", expanded=Fals
         st.markdown("""**ถ้าไม่มีอินเทอร์เน็ต?**\n\n📱 Mobile Version กำลังพัฒนา\n\nตอนนี้ใช้ผ่านเว็บเบราว์เซอร์ อนาคตรองรับ Offline + Mobile App""")
     with col_c:
         st.markdown("""**ขยายไปประเทศอื่นได้ไหม?**\n\n🌏 โครงสร้างพร้อมขยาย\n\nสถาปัตยกรรม G1→G2→G3 รองรับทุกประเทศที่มีข้อมูลท่องเที่ยว""")
+    col_d,col_e,col_f = st.columns(3)
+    with col_d:
+        st.markdown("""**💰 มีค่าใช้จ่ายไหม?**\n\n✅ ใช้งานฟรี 100%\n\nGroq API · Streamlit Cloud · Google Drive ทั้งหมดเป็น Free Tier ไม่มีค่าใช้จ่ายซ่อนเร้น""")
+    with col_e:
+        st.markdown("""**🔒 ข้อมูลของฉันปลอดภัยไหม?**\n\n✅ ไม่มีการเก็บข้อมูล\n\nข้อมูลธุรกิจที่กรอกไม่ถูกบันทึก ประมวลผลแบบ Session เท่านั้น""")
+    with col_f:
+        st.markdown("""**📱 ใช้บนมือถือได้ไหม?**\n\n✅ รองรับทุกอุปกรณ์\n\nใช้งานผ่านเว็บเบราว์เซอร์ได้ทั้ง PC · Tablet · Mobile""")
 
 st.divider()
 
