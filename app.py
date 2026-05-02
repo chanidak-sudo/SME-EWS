@@ -616,6 +616,85 @@ for r in [
 
 st.markdown("<br>", unsafe_allow_html=True)
 
+with st.expander("💰 Business Model & ค่าใช้จ่าย", expanded=False):
+    st.markdown("**🏗️ โครงสร้างค่าใช้จ่าย**")
+    bc1,bc2,bc3 = st.columns(3)
+    with bc1:
+        st.markdown("""
+<div style='background:#f0fdf4;border:1px solid #22c55e;border-radius:8px;padding:12px;text-align:center'>
+<div style='font-size:1.4rem'>🆓</div>
+<b style='color:#166534'>ตอนนี้: ฟรี 100%</b><br>
+<span style='font-size:11px;color:#64748b'>
+Groq API Free Tier<br>
+Streamlit Cloud Free<br>
+Google Drive Free<br>
+<b>รวม: 0 บาท/เดือน</b>
+</span></div>""", unsafe_allow_html=True)
+    with bc2:
+        st.markdown("""
+<div style='background:#eff6ff;border:1px solid #3b82f6;border-radius:8px;padding:12px;text-align:center'>
+<div style='font-size:1.4rem'>📈</div>
+<b style='color:#1d4ed8'>Scale จริง: ~1,000 บาท/เดือน</b><br>
+<span style='font-size:11px;color:#64748b'>
+Groq Pro ~320 บาท/เดือน<br>
+Streamlit Teams ~500 บาท/เดือน<br>
+Domain ~25 บาท/เดือน<br>
+<b>รองรับผู้ใช้หลักพันคน</b>
+</span></div>""", unsafe_allow_html=True)
+    with bc3:
+        st.markdown("""
+<div style='background:#fefce8;border:1px solid #eab308;border-radius:8px;padding:12px;text-align:center'>
+<div style='font-size:1.4rem'>🏢</div>
+<b style='color:#92400e'>B2B Enterprise</b><br>
+<span style='font-size:11px;color:#64748b'>
+ขายให้ธนาคาร/สสว.<br>
+White-label License<br>
+API Integration<br>
+<b>รายได้ต่อเนื่องระยะยาว</b>
+</span></div>""", unsafe_allow_html=True)
+
+    st.markdown("<br>**🗺️ Business Model Roadmap**", unsafe_allow_html=True)
+    r1,r2,r3 = st.columns(3)
+    with r1:
+        st.markdown("""
+<div style='background:#f0fdf4;border:1px solid #22c55e;border-radius:8px;padding:10px'>
+<b>🌱 Phase 1 — Public Good</b><br>
+<span style='font-size:11px;color:#64748b'>
+· ให้ใช้ฟรีทั่วประเทศ<br>
+· สร้าง User Base SME ไทย<br>
+· เก็บ Feedback ปรับปรุงระบบ<br>
+· ขอทุน BOI · สสว. · SME Bank
+</span></div>""", unsafe_allow_html=True)
+    with r2:
+        st.markdown("""
+<div style='background:#eff6ff;border:1px solid #3b82f6;border-radius:8px;padding:10px'>
+<b>🚀 Phase 2 — Freemium</b><br>
+<span style='font-size:11px;color:#64748b'>
+· ฟรี: พยากรณ์ 3 เดือน<br>
+· Premium: พยากรณ์ 3 ปี + AI Strategy<br>
+· Pro: Unlimited + API Access<br>
+· ราคา ~299–999 บาท/เดือน
+</span></div>""", unsafe_allow_html=True)
+    with r3:
+        st.markdown("""
+<div style='background:#fefce8;border:1px solid #eab308;border-radius:8px;padding:10px'>
+<b>🏆 Phase 3 — B2B Enterprise</b><br>
+<span style='font-size:11px;color:#64748b'>
+· ธนาคารพาณิชย์ — ใช้ประเมินสินเชื่อ SME<br>
+· กรมพัฒนาธุรกิจการค้า<br>
+· White-label สำหรับ TAT<br>
+· ขยายสู่ ASEAN
+</span></div>""", unsafe_allow_html=True)
+
+    st.markdown("""
+<div style='background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;
+padding:10px 14px;margin-top:10px;font-size:11px;color:#64748b'>
+  💡 <b>ความยั่งยืน:</b> ระบบออกแบบเป็น Public Good สำหรับ SME ไทย
+  ระยะยาวสามารถขอทุนสนับสนุนจาก <b>BOI · สสว. · SME Bank · กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม</b>
+  และสร้างรายได้จาก B2B License โดยไม่กระทบการให้บริการฟรีแก่ SME รายย่อย
+</div>
+""", unsafe_allow_html=True)
+
 with st.expander("❓ คำถามที่พบบ่อย", expanded=False):
     col_a,col_b,col_c = st.columns(3)
     with col_a:
