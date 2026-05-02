@@ -1185,10 +1185,10 @@ padding:8px 14px;margin-bottom:10px;font-size:11px;color:#64748b'>
     st.markdown("""
 <div style='background:#f0fdf4;border:1px solid #22c55e;border-radius:8px;
 padding:10px 16px;margin-bottom:12px;font-size:12px;color:#166534'>
-  🎯 <b>Key Outcome:</b>
-  System demonstrates <b>early risk detection up to 3 months before revenue decline</b>
-  during COVID-19 crisis period (2563–2564).
-  Tested across 77 provinces · 7-year dataset · 5 seasonal classifications.
+  🎯 <b>ผลลัพธ์หลัก:</b> ระบบสามารถตรวจจับสัญญาณความเสี่ยงได้
+  <b>ล่วงหน้าสูงสุด 3 เดือน ก่อนรายได้จะทรุดตัว</b>
+  ในช่วงวิกฤต COVID-19 (2563–2564)
+  ทดสอบครอบคลุม 77 จังหวัด · ข้อมูล 7 ปี · 5 ประเภทสถานการณ์ท่องเที่ยว
 </div>
 """, unsafe_allow_html=True)
     metrics=md['metrics']
