@@ -981,7 +981,7 @@ if predict_btn:
         f"<div style='background:#f0fdf4;border:2px solid #22c55e;"
         f"border-radius:10px;padding:16px;margin-bottom:12px'>"
         f"<b>🎯 ถ้าดำเนินการตามแผนทั้งหมด คาดการณ์ผลลัพธ์ภายใน 1-3 เดือน:</b><br><br>"
-        f"✂️ ลดต้นทุน 20% → ประหยัดได้ <b>{monthly_cost*sim_cost_cut_pct:,.0f} บาท/เดือน</b><br>"
+        f"✂️ Cost Optimization 20% → ประหยัดได้ <b>{monthly_cost*sim_cost_cut_pct:,.0f} บาท/เดือน</b><br>"
         f"👥 เพิ่ม Utilization 15% → ลูกค้าเพิ่มจาก <b>{customers_per_day} → {sim_new_customers:.0f} คน/วัน</b><br>"
         f"💰 Dynamic Pricing → รายได้เพิ่ม <b>+{dp_monthly_gain:,.0f} บาท/เดือน</b><br>"
         f"📊 กำไร/ขาดทุนใหม่: <b style='color:{sim_color}'>{sim_new_profit:+,.0f} บาท/เดือน</b> "
