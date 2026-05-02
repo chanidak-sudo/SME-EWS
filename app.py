@@ -460,7 +460,7 @@ def build_fallback(season_label, risks, monthly_profit, survival_months, biz_typ
     else:
         recs=[kpi_info['high_action'],"ตั้งราคาเพิ่ม 10-15% ช่วงนี้นักท่องเที่ยวมากพอ","สำรองเงิน 20-30% ของกำไรรับมือ Low Season"]
         actions=["วันที่ 1-2: ปรับราคาและประกาศใน Social Media","วันที่ 3-4: เพิ่ม Add-on Service เพิ่มรายได้/Visit","วันที่ 5-7: เปิด Pre-booking เก็บ Deposit ล่วงหน้า"]
-        cuts=["ไม่ควรลดต้นทุนตอนนี้ ควรลงทุนเพิ่มแทน",f"สำรองเงินสำหรับ {kpi_info['cost_focus']} ช่วง Low Season"]
+        cuts=[f"เพิ่มประสิทธิภาพต้นทุน (Cost Optimization) {kpi_info['cost_focus']} 20% เพื่อเพิ่ม Margin", f"สำรองเงินสำหรับ {kpi_info['cost_focus']} ช่วง Low Season"]
         ifthen=[f"ถ้าลูกค้ามากกว่าคาด → {kpi_info['high_action']}","ถ้ากำไรดีกว่าคาด → สำรองเงินเพิ่มรับ Low Season","ถ้านักท่องเที่ยวเริ่มลด → ทำ Package Early Bird ทันที"]
         warning=""; summary="สถานการณ์ดี เป็นช่วงโอกาสทอง ควรลงทุนและขยายบริการ"
     return {
@@ -811,7 +811,13 @@ if predict_btn:
     small_card(be1,"🎯 ลูกค้าที่ต้องมี/วัน",f"{breakeven_customers:.0f} คน","เพื่อไม่ให้ขาดทุน",be_color)
     small_card(be2,"👥 ลูกค้าตอนนี้",f"{customers_per_day} คน/วัน",f"รายได้ {daily_revenue_now:,.0f} บาท/วัน",'#22c55e' if gap_customers<=0 else '#f97316')
     small_card(be3,"📊 ยังขาดหรือเกิน",f"{abs(gap_customers):.0f} คน/วัน","✅ เกินจุดคุ้มทุน" if gap_customers<=0 else "⚠️ ยังไม่ถึงจุดคุ้มทุน",'#22c55e' if gap_customers<=0 else '#ef4444')
-
+    st.markdown(
+    "<div style='background:#fafafa;border:1px solid #e2e8f0;"
+    "border-radius:6px;padding:8px 12px;margin:6px 0;font-size:11px;color:#64748b'>"
+    "📌 <b>หมายเหตุ:</b> รายได้ต่อวันเป็นค่าเฉลี่ยเฉพาะ<b>วันเปิดทำการจริง</b> "
+    "ไม่รวมวันหยุด/โลว์ซีซั่น ดังนั้นรายได้/เดือนจริงอาจต่ำกว่า รายได้/วัน × 30 วัน"
+    "</div>",
+    unsafe_allow_html=True)
     st.markdown("**📉 ถ้านักท่องเที่ยวลดลงจะเกิดอะไรขึ้น**")
     sc1,sc2,sc3 = st.columns(3)
     for col,pct,label in [(sc1,10,"ลด 10%"),(sc2,20,"ลด 20%"),(sc3,30,"ลด 30%")]:
@@ -981,8 +987,8 @@ if predict_btn:
     before_profit_color = '#22c55e' if monthly_profit >= 0 else '#ef4444'
     after_profit_color  = '#22c55e' if sim_new_profit  >= 0 else '#f97316'
 
-    small_card(sim1,"📉 ก่อน: ต้นทุน/เดือน",f"{monthly_cost:,.0f} บาท","ก่อนลดต้นทุน",'#ef4444')
-    small_card(sim2,"📈 หลัง: ต้นทุน/เดือน",f"{sim_new_cost:,.0f} บาท",f"ลดลง {monthly_cost*sim_cost_cut_pct:,.0f} บาท (-20%)",'#22c55e')
+    small_card(sim1,"📉 ก่อน: ต้นทุนรวม (ยังไม่ Optimize)",f"{monthly_cost:,.0f} บาท","ก่อน Cost Optimization",'#ef4444')
+    small_card(sim2,"📈 หลัง: ต้นทุน (หลัง Optimize)",f"{sim_new_cost:,.0f} บาท",f"ประหยัด {monthly_cost*sim_cost_cut_pct:,.0f} บาท (-20%)",'#22c55e')
     small_card(sim3,"📉 ก่อน: กำไร/ขาดทุน",f"{monthly_profit:+,.0f} บาท","สถานะปัจจุบัน",before_profit_color)
     small_card(sim4,"📈 หลัง: กำไร/ขาดทุน",f"{sim_new_profit:+,.0f} บาท","หลังดำเนินกลยุทธ์",after_profit_color)
 
