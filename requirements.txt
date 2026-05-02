@@ -7,3 +7,4 @@ groq
 gdown
 scikit-learn
 xgboost
+matplotlib
