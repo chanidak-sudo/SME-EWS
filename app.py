@@ -2,8 +2,8 @@
 # SME EARLY WARNING SYSTEM (SME-EWS)
 # ระบบเตือนภัยล่วงหน้าสำหรับธุรกิจ SME ภาคการท่องเที่ยวไทย
 # ───────────────────────────────────────────────────────────────────────────────
-# สงวนลิขสิทธิ์ © 2025  ทีมวิจัยและพัฒนาระบบ SME-EWS
-# Copyright © 2025  SME-EWS Research & Development Team
+# สงวนลิขสิทธิ์ © 2026  ทีมวิจัยและพัฒนาระบบ SME-EWS
+# Copyright © 2026  SME-EWS Research & Development Team
 # พ.ร.บ. ลิขสิทธิ์ พ.ศ. 2537 | Patent Application Pending
 # ═══════════════════════════════════════════════════════════════════════════════
 import os
@@ -33,7 +33,7 @@ st.set_page_config(
     menu_items={
         'About': (
             "**SME Early Warning System (SME-EWS)**\n\n"
-            "สงวนลิขสิทธิ์ © 2025 ทีมวิจัยและพัฒนาระบบ SME-EWS\n"
+            "สงวนลิขสิทธิ์ © 2026 ทีมวิจัยและพัฒนาระบบ SME-EWS\n"
             "อยู่ระหว่างยื่นขอรับสิทธิบัตรโปรแกรมคอมพิวเตอร์"
         )
     }
@@ -719,7 +719,7 @@ st.divider()
 st.sidebar.markdown("""
 <div style='background:#0f172a;padding:12px;border-radius:8px;margin-bottom:12px;border:1px solid #1e3a5f'>
   <div style='color:#f87171;font-weight:bold;font-size:13px'>🚨 SME Early Warning System</div>
-  <div style='color:#64748b;font-size:10px;margin-top:2px'>© 2025 SME-EWS · Patent Pending</div>
+  <div style='color:#64748b;font-size:10px;margin-top:2px'>© 2026 SME-EWS · Patent Pending</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -752,7 +752,7 @@ predict_btn = st.sidebar.button("🚨 วิเคราะห์ความเ
 st.sidebar.divider()
 st.sidebar.markdown("""
 <div style='font-size:10px;color:#94a3b8;text-align:center;line-height:1.6'>
-  สงวนลิขสิทธิ์ © 2025<br>SME-EWS Research & Development Team<br>
+  สงวนลิขสิทธิ์ © 2026<br>SME-EWS Research & Development Team<br>
   <strong>Patent Application Pending</strong><br>พ.ร.บ. ลิขสิทธิ์ พ.ศ. 2537
 </div>
 """, unsafe_allow_html=True)
@@ -1353,8 +1353,8 @@ st.markdown("""
 <div style='background:#0f172a;padding:20px 24px;border-radius:12px;border:1px solid #1e293b;text-align:center'>
   <div style='color:#475569;font-size:11px;line-height:2'>
     <strong style='color:#94a3b8'>SME Early Warning System (SME-EWS)</strong><br>
-    สงวนลิขสิทธิ์ © 2025 ทีมวิจัยและพัฒนาระบบ SME-EWS &nbsp;|&nbsp;
-    Copyright © 2025 SME-EWS Research & Development Team<br>
+    สงวนลิขสิทธิ์ © 2026 ทีมวิจัยและพัฒนาระบบ SME-EWS &nbsp;|&nbsp;
+    Copyright © 2026 SME-EWS Research & Development Team<br>
     <strong style='color:#64748b'>Patent Application Pending — Computer Program Patent (Thailand)</strong><br>
     คุ้มครองภายใต้ พ.ร.บ. ลิขสิทธิ์ พ.ศ. 2537 และอนุสัญญาระหว่างประเทศ<br>
     ห้ามทำซ้ำ ดัดแปลง จำหน่าย หรือเผยแพร่โดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร
