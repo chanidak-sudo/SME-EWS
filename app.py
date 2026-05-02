@@ -954,12 +954,13 @@ padding:8px 14px;margin-bottom:10px;font-size:11px;color:#64748b'>
     try: conf_val = int(str(conf_ai).replace('%','').strip())
     except: conf_val = 80
     conf_color = '#22c55e' if conf_val>=80 else '#f59e0b' if conf_val>=60 else '#ef4444'
+    conf_label = 'ความเชื่อมั่นสูง' if conf_val>=80 else 'ความเชื่อมั่นปานกลาง' if conf_val>=60 else 'ความเชื่อมั่นต่ำ'
     st.markdown(
         f"<div style='margin-bottom:8px'>"
         f"<span style='background:{conf_color};color:#fff;padding:4px 12px;"
         f"border-radius:20px;font-size:11px;font-weight:bold'>"
-        f"🎯 Recommendation Confidence: {conf_val}% "
-        f"({'High' if conf_val>=80 else 'Medium' if conf_val>=60 else 'Low'} — based on 7-year pattern similarity)"
+        f"🎯 ความน่าเชื่อถือของคำแนะนำ: {conf_val}% "
+        f"({conf_label} — อ้างอิงจากรูปแบบข้อมูล 7 ปี)"
         f"</span></div>",
         unsafe_allow_html=True)
 
