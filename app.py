@@ -749,6 +749,28 @@ year          = target_date.year
 acc_label = "✅ ความแม่นยำสูง" if months_ahead<=6 else "⚠️ ช่วงยาว ±15%"
 st.sidebar.info(f"**📅 เป้าหมาย: {months_full[month-1]} {year+543}**\n\n{acc_label}")
 predict_btn = st.sidebar.button("🚨 วิเคราะห์ความเสี่ยง — เห็นก่อนวิกฤต!", use_container_width=True, type="primary")
+# ── Input Validation / Cross-check ──────────────
+warnings_list = []
+
+# 1. ต้นทุนสูงผิดปกติ
+if monthly_cost > monthly_revenue * 1.5 and monthly_revenue > 0:
+    warnings_list.append("⚠️ ต้นทุนสูงกว่ารายได้มากกว่า 1.5 เท่า กรุณาตรวจสอบอีกครั้ง")
+
+# 2. รายได้ต่อวันไม่สอดคล้องกับรายได้ต่อเดือน
+daily_implied = customers_per_day * avg_spend_per_customer * 30
+if monthly_revenue > 0 and (daily_implied > monthly_revenue * 3 or daily_implied < monthly_revenue * 0.1):
+    warnings_list.append("⚠️ รายได้ต่อเดือนกับจำนวนลูกค้า/วัน ดูไม่สอดคล้องกัน กรุณาตรวจสอบ")
+
+# 3. เงินสำรองน้อยเกินสมเหตุสมผล
+if cash_on_hand < monthly_cost * 0.5 and monthly_cost > 0:
+    warnings_list.append("⚠️ เงินสำรองน้อยกว่าครึ่งเดือน — ตัวเลขนี้ถูกต้องหรือเปล่า?")
+
+# แสดง warning ใน sidebar
+if warnings_list:
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("**🔍 ตรวจสอบข้อมูลก่อนวิเคราะห์**")
+    for w in warnings_list:
+        st.sidebar.warning(w)
 st.sidebar.divider()
 st.sidebar.markdown("""
 <div style='font-size:10px;color:#94a3b8;text-align:center;line-height:1.6'>
