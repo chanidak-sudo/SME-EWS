@@ -739,16 +739,6 @@ st.sidebar.divider()
 st.sidebar.markdown("**🧮 ข้อมูลจุดคุ้มทุน**")
 customers_per_day      = st.sidebar.number_input("ลูกค้าเฉลี่ยต่อวัน (คน)",min_value=0,max_value=10000,value=30,step=1,format="%d")
 avg_spend_per_customer = st.sidebar.number_input("ยอดใช้จ่ายเฉลี่ยต่อคน (บาท)",min_value=0,max_value=100000,value=300,step=50,format="%d")
-st.sidebar.divider()
-horizon_label = st.sidebar.selectbox("⏰ พยากรณ์ล่วงหน้า", list(horizon_options.keys()))
-months_ahead  = horizon_options[horizon_label]
-now           = datetime.datetime.now()
-target_date   = now + pd.DateOffset(months=months_ahead)
-month         = target_date.month
-year          = target_date.year
-acc_label = "✅ ความแม่นยำสูง" if months_ahead<=6 else "⚠️ ช่วงยาว ±15%"
-st.sidebar.info(f"**📅 เป้าหมาย: {months_full[month-1]} {year+543}**\n\n{acc_label}")
-predict_btn = st.sidebar.button("🚨 วิเคราะห์ความเสี่ยง — เห็นก่อนวิกฤต!", use_container_width=True, type="primary")
 # ── Input Validation / Cross-check ──────────────
 warnings_list = []
 
@@ -771,6 +761,17 @@ if warnings_list:
     st.sidebar.markdown("**🔍 ตรวจสอบข้อมูลก่อนวิเคราะห์**")
     for w in warnings_list:
         st.sidebar.warning(w)
+st.sidebar.divider()
+horizon_label = st.sidebar.selectbox("⏰ พยากรณ์ล่วงหน้า", list(horizon_options.keys()))
+months_ahead  = horizon_options[horizon_label]
+now           = datetime.datetime.now()
+target_date   = now + pd.DateOffset(months=months_ahead)
+month         = target_date.month
+year          = target_date.year
+acc_label = "✅ ความแม่นยำสูง" if months_ahead<=6 else "⚠️ ช่วงยาว ±15%"
+st.sidebar.info(f"**📅 เป้าหมาย: {months_full[month-1]} {year+543}**\n\n{acc_label}")
+predict_btn = st.sidebar.button("🚨 วิเคราะห์ความเสี่ยง — เห็นก่อนวิกฤต!", use_container_width=True, type="primary")
+
 st.sidebar.divider()
 st.sidebar.markdown("""
 <div style='font-size:10px;color:#94a3b8;text-align:center;line-height:1.6'>
